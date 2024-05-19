@@ -42,7 +42,7 @@ async function click() {
     console.log(`${consolePrefix}Success clicked (${count})`, consoleGreen);
     console.log(`${consolePrefix}Balance: ${balance}`, consoleYellow);
     if (autoClickActive) {
-        setTimeout(click, Math.random() * (347.7 - 451.2) + 451.2); // Исправлено на миллисекунды
+        setTimeout(click, Math.random() * (347.7 - 451.2) + 451.2);
     }
 }
 
@@ -65,10 +65,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 if (autoClickActive) {
                     img.style.filter = 'none';
-                    click(); // Запускаем функцию click
+                    click();
                 } else {
                     img.style.filter = 'grayscale(100%)';
-                    clearTimeout(autoClickInterval); // Останавливаем автоклик
+                    clearTimeout(autoClickInterval);
                 }
             });
             
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log(`${consolePrefix}Script loaded`, consoleGreen);
             console.log(`${consolePrefix}Code by @clqkx`, consoleGreen);
         } else {
-            setTimeout(addLinkToNav, 1000); // Повторяем попытку через 1 секунду
+            setTimeout(addLinkToNav, 1000);
         }
     }
 
