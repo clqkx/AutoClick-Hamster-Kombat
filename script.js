@@ -21,7 +21,7 @@ console.log(`${consolePrefix}Injecting...`, consoleGreen);
 if (!storedParams) {
     console.log(`${consolePrefix}An error occurred, the BrakePoint is set incorrectly!`, consoleRed);
     console.log(`${consolePrefix}Please follow the instructions, and you will succeed :*`, consoleRed);
-    console.log('https://github.com/');
+    console.log('https://github.com/clqkx/AutoClick-Hamster-Kombat');
 }
 storedParams.tgWebAppPlatform = 'ios';
 
