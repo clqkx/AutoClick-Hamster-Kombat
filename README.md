@@ -9,6 +9,7 @@
   <p align="center">
     <strong>Bot for automatic clicking in the Telegram game Hamster Kombat.</strong>
   </p>
+  <img src="./resources/demo.png"/>
 
 </div>
 
