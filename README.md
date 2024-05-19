@@ -2,7 +2,7 @@
 
 <div align="center">
 
-[<img src="./resources/hamster-logo.png" width="144"/>](https://t.me/hamster_kombat_bot)
+[<img src="./resources/hamster-logo.jpg" width="144"/>](https://t.me/hamster_kombat_bot)
 
   <h1 align="center">Auto Click for Hamster Kombat</h1>
   
