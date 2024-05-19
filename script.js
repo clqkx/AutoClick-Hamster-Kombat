@@ -30,19 +30,27 @@ let autoClickInterval;
 let count = 0;
 
 async function click() {
-    const element = document.querySelector('#__nuxt > div > main > div > div.user-tap.has-gap > button');
-    const pointerUpEvent = new PointerEvent('pointerup', {
-        bubbles: true,
-        cancelable: true,
-        pointerType: 'mouse'
-    });
-    element.dispatchEvent(pointerUpEvent);
-    count++;
-    const balance = document.querySelector('#__nuxt > div > main > div > div.user-balance-large > div > p').textContent
-    console.log(`${consolePrefix}Success clicked (${count})`, consoleGreen);
-    console.log(`${consolePrefix}Balance: ${balance}`, consoleYellow);
-    if (autoClickActive) {
-        setTimeout(click, Math.random() * (347.7 - 451.2) + 451.2);
+    try {
+        const element = document.querySelector('#__nuxt > div > main > div > div.user-tap.has-gap > button');
+        const pointerUpEvent = new PointerEvent('pointerup', {
+            bubbles: true,
+            cancelable: true,
+            pointerType: 'mouse'
+        });
+        element.dispatchEvent(pointerUpEvent);
+        count++;
+        const balance = document.querySelector('#__nuxt > div > main > div > div.user-balance-large > div > p').textContent
+        console.log(`${consolePrefix}Success clicked (${count})`, consoleGreen);
+        console.log(`${consolePrefix}Balance: ${balance}`, consoleYellow);
+        if (autoClickActive) {
+            setTimeout(click, Math.random() * (347.7 - 451.2) + 451.2);
+        }
+    } catch (e) {
+        autoClickActive = false;
+        console.log(`${consolePrefix}Deactivated`, consoleRed);
+        const img = document.querySelector('#__nuxt > div > div.app-bar > nav > a:nth-child(6) > div > img');
+        img.style.filter = 'grayscale(100%)';
+        clearTimeout(autoClickInterval);
     }
 }
 
