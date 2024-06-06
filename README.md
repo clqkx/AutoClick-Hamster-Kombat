@@ -236,7 +236,9 @@ function toggleAutoBuy() {
   if (autoBuyActive) autoBuy();
 }
 
-await addLinkToNav();
+(async function() {
+    await addLinkToNav();
+})();
 ```
 
 ### That's it! Now you can use this script for automatic clicking in the Hamster Kombat game on Telegram.
