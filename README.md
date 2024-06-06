@@ -44,10 +44,34 @@ Follow the steps below to launch script:
 2. Switch to the **"Console"** tab. In the console at the bottom of the page, enter the copied script and press the **Enter** key.
 
 ```
-const initParams = JSON.parse(sessionStorage.getItem('__telegram__initParams'))
-initParams.tgWebAppPlatform = 'ios'
-sessionStorage.setItem('__telegram__initParams', JSON.stringify(initParams))
-window.location.reload()
+const data = { "initDataRaw": JSON.parse(sessionStorage.getItem('__telegram__initParams')).tgWebAppData, "fingerprint": { "version": "4.2.1", "visitorId": Array.from({length:32},()=>Math.random().toString(36).charAt(2)).join(''), "components": { "fonts": { "value": [ "Gill Sans", "Helvetica Neue", "Menlo" ], "duration": 22 }, "domBlockers": { "value": [], "duration": 17 }, "fontPreferences": { "value": { "default": 149.3125, "apple": 153.53125, "serif": 149.3125, "sans": 144.0078125, "mono": 132.62158203125, "min": 9.33203125, "system": 146.09375 }, "duration": 14 }, "audio": { "value": 0.0000598061, "duration": 17 }, "screenFrame": { "value": [ 0, 0, 0, 0 ], "duration": 0 }, "canvas": null, "osCpu": { "duration": 0 }, "languages": { "value": [ [ "ru" ], [ "ru" ] ], "duration": 1 }, "colorDepth": { "value": 24, "duration": 0 }, "deviceMemory": { "duration": 0 }, "screenResolution": { "value": [ 852, 393 ], "duration": 0 }, "hardwareConcurrency": { "value": 4, "duration": 0 }, "timezone": { "value": "Europe/Samara", "duration": 0 }, "sessionStorage": { "value": true, "duration": 0 }, "localStorage": { "value": true, "duration": 0 }, "indexedDB": { "value": true, "duration": 0 }, "openDatabase": { "value": false, "duration": 0 }, "cpuClass": { "duration": 0 }, "platform": { "value": "iPhone", "duration": 0 }, "plugins": { "value": [ { "name": "PDF Viewer", "description": "Portable Document Format", "mimeTypes": [ { "type": "application/pdf", "suffixes": "pdf" }, { "type": "text/pdf", "suffixes": "pdf" } ] }, { "name": "Chrome PDF Viewer", "description": "Portable Document Format", "mimeTypes": [ { "type": "application/pdf", "suffixes": "pdf" }, { "type": "text/pdf", "suffixes": "pdf" } ] }, { "name": "Chromium PDF Viewer", "description": "Portable Document Format", "mimeTypes": [ { "type": "application/pdf", "suffixes": "pdf" }, { "type": "text/pdf", "suffixes": "pdf" } ] }, { "name": "Microsoft Edge PDF Viewer", "description": "Portable Document Format", "mimeTypes": [ { "type": "application/pdf", "suffixes": "pdf" }, { "type": "text/pdf", "suffixes": "pdf" } ] }, { "name": "WebKit built-in PDF", "description": "Portable Document Format", "mimeTypes": [ { "type": "application/pdf", "suffixes": "pdf" }, { "type": "text/pdf", "suffixes": "pdf" } ] } ], "duration": 0 }, "touchSupport": { "value": { "maxTouchPoints": 5, "touchEvent": true, "touchStart": true }, "duration": 0 }, "vendor": { "value": "Apple Computer,Inc.", "duration": 0 }, "vendorFlavors": { "value": [ "webkit" ], "duration": 0 }, "cookiesEnabled": { "value": true, "duration": 0 }, "colorGamut": { "value": "p3", "duration": 0 }, "invertedColors": { "value": false, "duration": 0 }, "forcedColors": { "value": false, "duration": 0 }, "monochrome": { "value": 0, "duration": 0 }, "contrast": { "value": 0, "duration": 0 }, "reducedMotion": { "value": false, "duration": 1 }, "reducedTransparency": { "duration": 0 }, "hdr": { "value": true, "duration": 0 }, "math": { "value": { "acos": 1.4473588658278522, "acosh": 709.889355822726, "acoshPf": 355.291251501643, "asin": 0.12343746096704435, "asinh": 0.881373587019543, "asinhPf": 0.8813735870195429, "atanh": 0.5493061443340549, "atanhPf": 0.5493061443340549, "atan": 0.46364760900080615, "sin": 0.8178819121159085, "sinh": 1.1752011936438014, "sinhPf": 2.534342107873324, "cos": -0.8390715290095377, "cosh": 1.5430806348152437, "coshPf": 1.5430806348152437, "tan": -1.4214488238747243, "tanh": 0.7615941559557649, "tanhPf": 0.7615941559557649, "exp": 2.718281828459045, "expm1": 1.7182818284590453, "expm1Pf": 1.718281828459045, "log1p": 2.3978952727983707, "log1pPf": 2.3978952727983707, "powPI": 1.9275814160560206e-50 }, "duration": 0 }, "pdfViewerEnabled": { "value": true, "duration": 0 }, "architecture": { "value": 127, "duration": 0 }, "applePay": { "value": 1, "duration": 0 }, "privateClickMeasurement": { "value": "0", "duration": 0 }, "webGlBasics": { "value": { "version": "WebGL 1.0", "vendor": "WebKit", "vendorUnmasked": "Apple Inc.", "renderer": "WebKit WebGL", "rendererUnmasked": "Apple GPU", "shadingLanguageVersion": "WebGL GLSL ES 1.0 (1.0)" }, "duration": 1 }, "webGlExtensions": null } } }
+
+fetch("https://api.hamsterkombat.io/auth/auth-by-telegram-webapp", {
+  "headers": {
+    "accept": "application/json",
+    "accept-language": "ru,en;q=0.9,en-GB;q=0.8,en-US;q=0.7",
+    "authorization": "authToken is empty, store token null",
+    "content-type": "application/json",
+    "sec-ch-ua": "\"Chromium\";v=\"122\", \"Not(A:Brand\";v=\"24\", \"Microsoft Edge\";v=\"122\", \"Microsoft Edge WebView2\";v=\"122\"",
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": "\"Windows\"",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-site",
+    "Referer": "https://hamsterkombat.io/",
+    "Referrer-Policy": "strict-origin-when-cross-origin"
+  },
+  "body": JSON.stringify(data),
+  "method": "POST"
+}).then((response) => response.json())
+  .then((data) => {
+    localStorage.setItem('authToken', data.authToken)
+    const initParams = JSON.parse(sessionStorage.getItem('__telegram__initParams'))
+    initParams.tgWebAppPlatform = 'ios'
+    sessionStorage.setItem('__telegram__initParams', JSON.stringify(initParams))
+    window.location.reload()
+  })
+  .catch(console.error);
 ```
 
 3. After reloading the page, paste the following script into the console and press **Enter** key.
